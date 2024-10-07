@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Foundation
+import Combine
 
 @main
 struct MontyApp: App {
@@ -13,5 +15,17 @@ struct MontyApp: App {
         WindowGroup {
             ContentView()
         }
+    }
+}
+
+class Monty: ObservableObject {
+    @Published var gameOver: Bool = false
+    @Published var playerWins: Bool = false
+    
+    private(set) var cards: [Card] = []
+    
+    func newGame() {
+        gameOver = false
+        playerWins = false
     }
 }
