@@ -27,5 +27,11 @@ class Monty: ObservableObject {
     func newGame() {
         gameOver = false
         playerWins = false
+        
+        cards = [
+            Card(isAce: true),
+            Card(isAce: false),
+            Card(isAce: false)
+        ]
     }
 }
