@@ -10,12 +10,31 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HStack {
+                ForEach(monty.cards, id: \.self) { card in
+                    CardView(card: card)
+                        .onTapGesture {
+                            monty.onCardTap(card: card)
+                        }
+                }
+            }
+            Button(action: {
+                monty.newGame()
+            }) {
+                Text("New Game")
+            }
+            .padding()
+            
+            if monty.gameOver {
+                Image(monty.playerWins ? "winner" : "loser")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 100)
+            }
         }
-        .padding()
+        .onAppear {
+            monty.newGame()
+        }
     }
 }
 
