@@ -48,6 +48,7 @@ class Monty: ObservableObject {
 class Card: ObservableObject {
     @Published var faceUp: Bool = false
     let isAce: Bool
+    let id = UUID()
     
     init(isAce: Bool) {
         self.isAce = isAce
