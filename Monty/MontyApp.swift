@@ -21,21 +21,20 @@ struct MontyApp: App {
 class Monty: ObservableObject {
     @Published var gameOver: Bool = false
     @Published var playerWins: Bool = false
-    
-    private(set) var cards: [Card] = []
+    @Published var cards: [Card] = []
     
     func newGame() {
-        gameOver = false
-        playerWins = false
         
         cards = [
             Card(isAce: true),
             Card(isAce: false),
             Card(isAce: false)
         ]
-        
         cards.shuffle()
+        gameOver = false
+        playerWins = false
     }
+    
     func onCardTap(card: Card) {
         if !gameOver {
             card.faceUp = true
@@ -45,10 +44,10 @@ class Monty: ObservableObject {
     }
 }
 
-class Card: ObservableObject {
+class Card: ObservableObject, Identifiable {
     @Published var faceUp: Bool = false
     let isAce: Bool
-    let id = UUID()
+    let id = UUID() 
     
     init(isAce: Bool) {
         self.isAce = isAce

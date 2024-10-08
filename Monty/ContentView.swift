@@ -8,36 +8,59 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var monty = Monty()
+    
     var body: some View {
-        VStack {
-            HStack {
-                ForEach(monty.cards, id: \.self) { card in
-                    CardView(card: card)
-                        .onTapGesture {
-                            monty.onCardTap(card: card)
-                        }
-                }
-            }
-            Button(action: {
-                monty.newGame()
-            }) {
-                Text("New Game")
-            }
-            .padding()
-            
-            if monty.gameOver {
-                Image(monty.playerWins ? "winner" : "loser")
+        ZStack {
+            VStack {
+                Spacer()
+                
+                Image(monty.playerWins ? "Winner" : "Loser")
                     .resizable()
-                    .scaledToFit()
-                    .frame(height: 100)
+                    .aspectRatio(contentMode: .fill)
+                    .clipped()
+                    .frame(width: 200, height: 200)
+                    .opacity(monty.gameOver ? 1 : 0)
+                    .transition(.opacity)
+                    
+                
+                HStack {
+                    Spacer()
+                    
+                    ForEach(monty.cards.indices, id: \.self) { index in
+                        CardView(card: monty.cards[index])
+                            .frame(width: 130, height: 195)
+                            .onTapGesture {
+                                if !monty.gameOver {
+                                    monty.onCardTap(card: monty.cards[index])
+                                }
+                            }
+                    }
+                    Spacer()
+                }
+                .padding()
+                Spacer()
+                Button(action: {
+                    monty.newGame()
+                }) {
+                    Text("New Game")
+                        .font(.largeTitle)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                }
+
+                .padding()
             }
-        }
-        .onAppear {
-            monty.newGame()
+            .onAppear {
+                monty.newGame()
+            }
+            .background(Color(red: 0.0, green: 0.3, blue: 0.0).edgesIgnoringSafeArea(.all))
         }
     }
 }
-
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }

@@ -14,6 +14,7 @@
 		1830790C2CB45FDB00D1F423 /* MontyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830790B2CB45FDB00D1F423 /* MontyTests.swift */; };
 		183079162CB45FDB00D1F423 /* MontyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183079152CB45FDB00D1F423 /* MontyUITests.swift */; };
 		183079182CB45FDB00D1F423 /* MontyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183079172CB45FDB00D1F423 /* MontyUITestsLaunchTests.swift */; };
+		183079252CB4BCCC00D1F423 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183079242CB4BCCC00D1F423 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		183079112CB45FDB00D1F423 /* MontyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MontyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183079152CB45FDB00D1F423 /* MontyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontyUITests.swift; sourceTree = "<group>"; };
 		183079172CB45FDB00D1F423 /* MontyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		183079242CB4BCCC00D1F423 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				183078F92CB45FDA00D1F423 /* MontyApp.swift */,
+				183079242CB4BCCC00D1F423 /* CardView.swift */,
 				183078FB2CB45FDA00D1F423 /* ContentView.swift */,
 				183078FD2CB45FDB00D1F423 /* Assets.xcassets */,
 				183078FF2CB45FDB00D1F423 /* Monty.entitlements */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				183078FC2CB45FDA00D1F423 /* ContentView.swift in Sources */,
+				183079252CB4BCCC00D1F423 /* CardView.swift in Sources */,
 				183078FA2CB45FDA00D1F423 /* MontyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,21 +8,31 @@
 import SwiftUI
 
 struct CardView: View {
+    @ObservedObject var card: Card
+    
     var body: some View {
         ZStack {
             if card.faceUp {
-                Image(card.isAce ? "ace" : "blank")
-                    .resizable()
-                    .scaledToFit()
+                Image(card.isAce ? "Ace" : "blank")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 140, height: 185)
+                .clipped()
             } else {
-                Image("card_back")
-                    .resizable()
-                    .scaledToFit()
+                Image("back")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 300)
+                .clipped()
             }
         }
+        .shadow(radius: 5)
     }
 }
 
-#Preview {
-    CardView()
+struct CardView_Previews: PreviewProvider {
+    static var previews: some View {
+        CardView(card: Card(isAce: true))
+            .previewLayout(.sizeThatFits)
+    }
 }
