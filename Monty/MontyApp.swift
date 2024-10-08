@@ -33,6 +33,15 @@ class Monty: ObservableObject {
             Card(isAce: false),
             Card(isAce: false)
         ]
+        
+        cards.shuffle()
+    }
+    func onCardTap(card: Card) {
+        if !gameOver {
+            card.faceUp = true
+            gameOver = true
+            playerWins = card.isAce
+        }
     }
 }
 
